@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+.nova-habilidade-container{
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nova-habilidade-container .content{
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nova-habilidade-container .content section{
+    width: 100%;
+    max-width: 380px;
+}
+
+.nova-habilidade-container .content section h1{
+    margin: 64px 0 32px;
+    font-size: 32px;
+}
+
+.nova-habilidade-container .content section p{
+    font-size: 18px;
+    color: #737380;
+    line-height: 32px;
+}
+
+.nova-habilidade-container .content form{
+    width: 100%;
+    max-width: 450px;
+}
+
+.nova-habilidade-container .content form .input-group{
+    display: flex;
+}
+.nova-habilidade-container .content form .input-group input + input{
+    margin-left: 8px;
+}
+.nova-vaga-container .content form input,
+.nova-vaga-container .content form textarea {
+    margin-top: 8px;
+}
+.nova-habilidade-container .content form .input-select {
+    width: 100%;
+    max-width: 450px;
+    height: 48px;
+    
+    font-weight: 400;
+    padding: 13px 20px 13px 12px;
+
+}
