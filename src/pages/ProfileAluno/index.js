@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import './styles.css';
-import { FiPlus ,FiPower, FiTrash2} from 'react-icons/fi';
+import { FiPlus ,FiPower, FiTrash2, FiHome} from 'react-icons/fi';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
@@ -75,6 +75,10 @@ export default function Profile(){
             alert('Erro ao deletar experiencia, tente novamente');
         }
     }
+    //Home Function
+    function handleHome(){
+        history.push('/HomeAluno');
+    }
     //Logout Func
     function handleLogout(){
         localStorage.clear();
@@ -86,8 +90,9 @@ export default function Profile(){
             <header>
                 <img src={logo} alt="Central de Estágios"/>
                 <span>Boas vindas, {nomeAluno}</span>
-
-                <Link className="button" to="/vagas/new">Curriculo</Link>
+                <button onClick={handleHome} type="button">
+                    <FiHome size={18} color="#E02041"/>
+                </button>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02041"/>
                 </button>

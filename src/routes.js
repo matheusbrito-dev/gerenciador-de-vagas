@@ -10,6 +10,9 @@ import ProfileAluno from './pages/ProfileAluno';
 import NovaEscolaridade from './pages/NovasEscolaridades';
 import NovaExperiencias from './pages/NovasExperiencias';
 import NovaHabilidades from './pages/NovasHabilidades';
+import EscolherCadastro from './pages/EscolherCadastro';
+import HomeAluno from './pages/HomeAluno';
+import HomeEmpresa from './pages/HomeEmpresa';
 
 export default function Routes(){
     return(
@@ -24,6 +27,9 @@ export default function Routes(){
                 <Route path="/escolaridade/new" component={NovaEscolaridade}/>
                 <Route path="/experiencia/new" component={NovaExperiencias}/>
                 <Route path="/habilidade/new" component={NovaHabilidades}/>
+                <Route path="/escolherCadastro" component={EscolherCadastro}/>
+                <Route path="/homeEmpresa" component={HomeEmpresa}/>
+                <Route path="/homeAluno" component={HomeAluno}/>
             </Switch>
         </BrowserRouter>
     );

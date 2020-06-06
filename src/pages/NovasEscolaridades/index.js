@@ -1,10 +1,47 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import './styles.css';
-
 import logo from '../../assets/logo.png';
+import api from '../../services/api';
 export default function NovaEscolaridade(){
+
+    const[nomeInstituicao,setNomeInstituicao] = useState('');
+    const[cidadeInstituicao,setCidadeInstituicao] = useState('');
+    const[cursoEsc, setCursoEsc] = useState('');
+    const[ufInstituicao,setUfInstituicao] = useState('');
+    const[dataInicio, setDataInicio] = useState('');
+    const[dataPrevConclusao,setDataPrevConclusao] = useState('');
+
+    const alunoId = localStorage.getItem('alunoId');
+
+    const history = useHistory();
+
+    async function handleNovaEscolaridade(e){
+        e.preventDefault();
+
+        const data ={
+            nomeInstituicao,
+            cidadeInstituicao,
+            ufInstituicao,
+            cursoEsc,
+            dataInicio,
+            dataPrevConclusao,
+        
+        };
+
+        try{
+            await api.post('escolaridades', data,{
+                headers:{
+                    Authorization: alunoId,
+                }
+            })
+            alert(`Você cadastrou sua Escolaridade com sucesso!`);
+            history.push('/profileAluno');
+        }catch(err){
+            alert('Erro no cadastro, tente novamente.');
+        }
+    }
     return (
         <div className="nova-escolaridade-container">
             <div className="content">
@@ -20,15 +57,41 @@ export default function NovaEscolaridade(){
                    </Link>
                 </section>
 
-                <form>
-                    <input placeholder="Nome da Instituição"/>
-                    <input placeholder="Nome do Curso"/>
+                <form onSubmit={handleNovaEscolaridade}>
+                    <input 
+                    placeholder="Nome da Instituição"
+                    value={nomeInstituicao}
+                    onChange={e=> setNomeInstituicao(e.target.value)}
+                    />
+                    <input 
+                    placeholder="Nome do Curso"
+                    value={cursoEsc}
+                    onChange={e=> setCursoEsc(e.target.value)}
+                    />
                     <div className="input-group">
-                        <input placeholder="Cidade"/>
-                        <input placeholder="UF"/>
+                        <input 
+                        placeholder="Cidade"
+                        value={cidadeInstituicao}
+                        onChange={e=>setCidadeInstituicao(e.target.value)}
+                        />
+                        <input 
+                        placeholder="UF"
+                        value={ufInstituicao}
+                        onChange={e=>setUfInstituicao(e.target.value)}
+                        />
                     </div>
-                    <input type="date" placeholder="Data Início"/>
-                    <input type="date" placeholder="Data Conclusão(Previsão)"/>
+                    <input 
+                    type="date" 
+                    placeholder="Data Início"
+                    value={dataInicio}
+                    onChange={e=>setDataInicio(e.target.value)}
+                    />
+                    <input 
+                    type="date" 
+                    placeholder="Data Conclusão(Previsão)"
+                    value={dataPrevConclusao}
+                    onChange={e=>setDataPrevConclusao(e.target.value)}
+                    />
  
                     <button className="button" type="submit">Adicionar Escolaridade</button>
 

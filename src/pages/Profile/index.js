@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import './styles.css';
-import { FiPower, FiTrash2} from 'react-icons/fi';
+import { FiPower, FiTrash2, FiHome} from 'react-icons/fi';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
@@ -39,6 +39,11 @@ export default function Profile(){
         }
     }
 
+    //Home Function
+    function handleHome(){
+        history.push('/HomeEmpresa');
+    }
+
     //Logout Func
     function handleLogout(){
         localStorage.clear();
@@ -52,6 +57,9 @@ export default function Profile(){
                 <span>Boas vindas, {nomeEmpresa}</span>
 
                 <Link className="button" to="/vagas/new">Cadastrar nova vagas</Link>
+                <button onClick={handleHome} type="button">
+                    <FiHome size={18} color="#E02041"/>
+                </button>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02041"/>
                 </button>

@@ -25,13 +25,13 @@ export default function Logon(){
                 const response = await api.post('sessionAluno', {id, senha});
                 localStorage.setItem('alunoId', id);
                 localStorage.setItem('nomeAluno', response.data.nomeAluno);
-                history.push('/profileAluno');
+                history.push('/homeAluno');
 
             }else if(tipoLogin==="empresa"){
                 const response = await api.post('session', {id, senha});
                 localStorage.setItem('empresaId', id);
                 localStorage.setItem('nomeEmpresa', response.data.nomeFantasiaEmp);
-                history.push('/profile');
+                history.push('/homeEmpresa');
             }else{
                 alert('Falha no Login, Por favor insira as informações');
             }
@@ -72,7 +72,7 @@ export default function Logon(){
                    
                    <button className="button" type="submit">Entrar</button>
 
-                   <Link className="back-link" to="/register">
+                   <Link className="back-link" to="/escolherCadastro">
                        <FiLogIn size={16} color="#E02041"/>
                        Não tenho cadastro
                    </Link>

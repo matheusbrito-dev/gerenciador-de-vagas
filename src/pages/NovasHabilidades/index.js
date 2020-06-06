@@ -1,10 +1,39 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import './styles.css';
-
 import logo from '../../assets/logo.png';
+import api from '../../services/api';
 export default function NovaEscolaridade(){
+
+    const [nomeHabilidade, setNomeHabilidade] = useState('');
+    const [descricaoHabilidade, setDescricaoHabilidade] = useState('');
+
+    const alunoId = localStorage.getItem('alunoId');
+
+    const history = useHistory();
+
+    async function handleNovaHabilidade(e){
+        e.preventDefault();
+
+        const data ={
+            nomeHabilidade,
+            descricaoHabilidade,
+        };
+
+        try{
+            await api.post('habilidades', data,{
+                headers: {
+                    Authorization: alunoId,
+                }
+            })
+            alert(`Você cadastrou a Habilidade com sucesso!`);
+            history.push('/profileAluno');
+        }catch(err){
+            alert('Erro no cadastro, tente novamente.');
+        }
+    }
+
     return (
         <div className="nova-habilidade-container">
             <div className="content">
@@ -20,9 +49,17 @@ export default function NovaEscolaridade(){
                    </Link>
                 </section>
 
-                <form>
-                    <input placeholder="Nome da Habilidade"/>
-                    <textarea placeholder="Descrição"/>
+                <form onSubmit={handleNovaHabilidade}>
+                    <input 
+                    placeholder="Nome da Habilidade"
+                    value={nomeHabilidade}
+                    onChange={e=> setNomeHabilidade(e.target.value)}
+                    />
+                    <textarea 
+                    placeholder="Descrição"
+                    value={descricaoHabilidade}
+                    onChange={e=> setDescricaoHabilidade(e.target.value)}
+                    />
  
                     <button className="button" type="submit">Adicionar Habilidade</button>
 

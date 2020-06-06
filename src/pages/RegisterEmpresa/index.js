@@ -60,9 +60,14 @@ export default function Register(){
                     <h1>Cadastro de Empresa</h1>
                     <p>Efetue o cadastro para ter acesso ao sistema</p>
 
+                    <Link className="back-link" to="/escolherCadastro">
+                       <FiArrowLeft size={16} color="#E02041"/>
+                       Voltar para a escolha de Cadastro
+                   </Link>
+
                     <Link className="back-link" to="/">
                        <FiArrowLeft size={16} color="#E02041"/>
-                       Voltar para a tela de login
+                       Voltar para a tela de Login
                    </Link>
                 </section>
 
