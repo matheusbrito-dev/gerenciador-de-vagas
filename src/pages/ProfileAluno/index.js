@@ -5,7 +5,8 @@ import { FiPlus ,FiPower, FiTrash2, FiHome} from 'react-icons/fi';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
-export default function Profile(){
+
+export default function ProfileAluno(){
 
     const history = useHistory();
 
@@ -18,16 +19,16 @@ export default function Profile(){
 
     //Auth
     useEffect(()=>{
-        api.get('profile', {
+        api.get('profileAluno', {
             headers:{
                 Authorization: alunoId,
             }
         }).then(response=>{
-            setHabilidade(response.data)
-            setEscolaridade(response.data)
-            setExperiencia(response.data)
-
+            setEscolaridade(response.data.escolaridades)
+            setExperiencia(response.data.experiencias)
+            setHabilidade(response.data.habilidades)
         })
+        
     }, [alunoId]);
     
     //Função Delete
@@ -77,7 +78,7 @@ export default function Profile(){
     }
     //Home Function
     function handleHome(){
-        history.push('/HomeAluno');
+        history.push('/homeAluno');
     }
     //Logout Func
     function handleLogout(){
@@ -125,11 +126,11 @@ export default function Profile(){
             <ul>
                 {experiencias.map(experiencias => (
                     <li key={experiencias.id}>
-                        <strong>Nome da Empresa:</strong>
-                        <p>{experiencias.nomeEmpresaExp}</p>
+                        <strong>EMPRESA:</strong>
+                        <p>{experiencias.nomeEmpresa}</p>
 
                         <strong>DESCRIÇÃO DA EXPERIÊNCIA:</strong>
-                        <p>{experiencias.descricaoHabilidade}</p>
+                        <p>{experiencias.descricaoExp}</p>
 
                         <strong>CIDADE DA EXPERIÊNCIA:</strong>
                         <p>{experiencias.cidadeExp}</p>
@@ -141,10 +142,10 @@ export default function Profile(){
                         <p>{experiencias.cargoExp}</p>
 
                         <strong>DATA DE ADMISSÃO</strong>
-                        <p>{Intl.DateTimeFormat('pt-BR').format(experiencias.dataAdmissao)}</p>
+                        <p>{experiencias.dataAdmissao}</p>
 
                         <strong>DATA DA EXONERAÇÃO</strong>
-                        <p>{Intl.DateTimeFormat('pt-BR').format(experiencias.dataExoneracao)}</p>
+                        <p>{experiencias.dataExoneracao}</p>
 
 
                         <button onClick={()=>handleDeleteExperiencia(experiencias.id)} type="button">
@@ -176,10 +177,10 @@ export default function Profile(){
                         <p>{escolaridades.ufInstituicao}</p>
 
                         <strong>DATA DO INICIO DO CURSO:</strong>
-                        <p>{Intl.DateTimeFormat('pt-BR').format(escolaridades.dataInicio)}</p>
+                        <p>{escolaridades.dataInicio}</p>
 
                         <strong>DATA DA PREVISÃO/FIM DO CURSO</strong>
-                        <p>{Intl.DateTimeFormat('pt-BR').format(escolaridades.dataPrevConclusao)}</p>
+                        <p>{escolaridades.dataPrevConclusao}</p>
 
 
                         <button onClick={()=>handleDeleteEscolaridade(escolaridades.id)} type="button">

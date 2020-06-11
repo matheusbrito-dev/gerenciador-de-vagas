@@ -13,9 +13,10 @@ export default function NovaEscolaridade(){
 
     const history = useHistory();
 
+
+
     async function handleNovaHabilidade(e){
         e.preventDefault();
-
         const data ={
             nomeHabilidade,
             descricaoHabilidade,
