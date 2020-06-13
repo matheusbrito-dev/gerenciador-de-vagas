@@ -1,23 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import './styles.css';
 import { FiPower} from 'react-icons/fi';
 import logo from '../../assets/logo.png';
 
 
-export default function HomeAluno(){
+export default function HomeAluno() {
     const history = useHistory();
-
+    
     const nomeAluno = localStorage.getItem('nomeAluno');
-
-
 
     //Logout Func
     function handleLogout(){
         localStorage.clear();
         history.push('/');
     }
-
+    //Teste tabela
     return (
         <div className="home-aluno-container">
             <header>
@@ -31,6 +29,12 @@ export default function HomeAluno(){
             </header>
         
             <h1>Aqui será uma tabela de pesquisa de vagas</h1>
+
+            <ul>
+                <li>
+
+                </li>
+            </ul>
         </div>
     );
 }

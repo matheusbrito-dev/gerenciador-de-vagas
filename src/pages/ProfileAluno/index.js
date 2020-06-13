@@ -104,7 +104,7 @@ export default function ProfileAluno(){
             <ul>
                 {habilidades.map(habilidades => (
                     <li key={habilidades.id}>
-                        <strong>VAGAS:</strong>
+                        <strong>NOME DA HABILIDADE:</strong>
                         <p>{habilidades.nomeHabilidade}</p>
 
                         <strong>DESCRIÇÃO:</strong>
@@ -127,7 +127,7 @@ export default function ProfileAluno(){
                 {experiencias.map(experiencias => (
                     <li key={experiencias.id}>
                         <strong>EMPRESA:</strong>
-                        <p>{experiencias.nomeEmpresa}</p>
+                        <p>{experiencias.nomeEmpresaExp}</p>
 
                         <strong>DESCRIÇÃO DA EXPERIÊNCIA:</strong>
                         <p>{experiencias.descricaoExp}</p>
