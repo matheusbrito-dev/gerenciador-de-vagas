@@ -1,11 +1,16 @@
+//Npm Imports
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
+
+//Project Imports
 import api from '../../services/api';
 import './styles.css';
-
 import logo from '../../assets/logo.png';
+
 export default function NovaVaga(){
+
     const [nomeVaga,setNomeVaga] = useState('');
     const [cargoVaga,setCargoVaga] = useState('');
     const [descricaoVaga,setDescricaoVaga] = useState('');
@@ -33,14 +38,15 @@ export default function NovaVaga(){
                     Authorization: empresaId,
                 }
             })
-            alert(`Você Cadastrou a vaga com sucesso!`);
+            toast.success("Você Cadastrou a vaga com sucesso!");
             history.push('/profile');
         }catch(err){
-            alert('Erro no cadastro, tente novamente.');
+            toast.error("Erro no cadastro, tente novamente.");
         }
     }
     return (
         <div className="nova-vaga-container">
+            <ToastContainer/>
             <div className="content">
                 <section>
                     <img src= {logo} alt="Central de Estagio"/>

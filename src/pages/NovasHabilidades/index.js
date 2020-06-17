@@ -1,9 +1,14 @@
+//Npm Imports
 import React, { useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
+
+//Project Imports
 import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
+
 export default function NovaEscolaridade(){
 
     const [nomeHabilidade, setNomeHabilidade] = useState('');
@@ -12,8 +17,6 @@ export default function NovaEscolaridade(){
     const alunoId = localStorage.getItem('alunoId');
 
     const history = useHistory();
-
-
 
     async function handleNovaHabilidade(e){
         e.preventDefault();
@@ -28,15 +31,16 @@ export default function NovaEscolaridade(){
                     Authorization: alunoId,
                 }
             })
-            alert(`Você cadastrou a Habilidade com sucesso!`);
+            toast.success("Você cadastrou a Habilidade com sucesso!");
             history.push('/profileAluno');
         }catch(err){
-            alert('Erro no cadastro, tente novamente.');
+            toast.error("Erro no cadastro, tente novamente.");
         }
     }
 
     return (
         <div className="nova-habilidade-container">
+            <ToastContainer/>
             <div className="content">
                 <section>
                     <img src= {logo} alt="Central de Estagio"/>
@@ -62,7 +66,8 @@ export default function NovaEscolaridade(){
                     onChange={e=> setDescricaoHabilidade(e.target.value)}
                     />
  
-                    <button className="button" type="submit">Adicionar Habilidade</button>
+                    <button className="button" 
+                            type="submit">Adicionar Habilidade</button>
 
                 </form>
             </div>

@@ -1,10 +1,14 @@
-import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
+// NPM imports
+import React, { useState } from 'react';
 import { FiArrowLeft} from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+
+// Project imports 
 import api from '../../services/api';
 import './styles.css';
 import logo from '../../assets/logo.png';
-import { useState } from 'react';
+
 
 export default function Register(){
 
@@ -18,7 +22,6 @@ export default function Register(){
     const [logoEmpresa,setLogoEmpresa] = useState('');
     const [nomeRepresentante,setNomeRepresentante] = useState('');
     const [cpfRepresentante,setCpfRepresentante] = useState('');
-    //const [usuarioEmpresa,setUsuarioEmpresa] = useState('');
     const [senhaEmpresa,setSenhaEmpresa] = useState('');
 
     const history = useHistory();
@@ -37,22 +40,23 @@ export default function Register(){
             logoEmpresa,
             nomeRepresentante,
             cpfRepresentante,
-            //usuarioEmpresa,
             senhaEmpresa,
         };
 
         try{
             const response = await api.post('empresas', data)
-        
+            
             alert(`Seu ID de acesso: ${response.data.id}`);
             
             history.push('/');
         }catch(err){
-            alert('Erro no cadastro, tente novamente.');
+            toast.error(err.response.data.error);
         }
     }
+
     return( 
         <div className="register-container">
+            <ToastContainer />
             <div className="content">
                 <section>
                     <img src= {logo} alt="Central de Estagio"/>

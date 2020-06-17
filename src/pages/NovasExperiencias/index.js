@@ -1,18 +1,23 @@
+//Npm Imports
 import React, { useState}  from 'react';
 import {Link, useHistory } from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
+
+//Project Imports
 import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
+
 export default function NovaEscolaridade(){
 
-    const [nomeEmpresaExp, setNomeEmpresaExp] = useState('');
-    const [ descricaoExp,setDescricaoExp] = useState('');
-    const [cidadeExp,setCidadeExp] = useState('');
-    const [ufExp,setUfExp] = useState('');
-    const [ cargoExp,setCargoExp] = useState('');
-    const [ dataAdmissao,setDataAdmissao] = useState('');
-    const [ dataExoneracao,setDataExoneracao] = useState('');
+    const [ nomeEmpresaExp, setNomeEmpresaExp] = useState('');
+    const [ descricaoExp, setDescricaoExp] = useState('');
+    const [ cidadeExp, setCidadeExp] = useState('');
+    const [ ufExp, setUfExp] = useState('');
+    const [ cargoExp, setCargoExp] = useState('');
+    const [ dataAdmissao, setDataAdmissao] = useState('');
+    const [ dataExoneracao, setDataExoneracao] = useState('');
 
     const alunoId = localStorage.getItem('alunoId');
 
@@ -37,14 +42,15 @@ export default function NovaEscolaridade(){
                     Authorization: alunoId,
                 }
             })
-            alert(`Você cadastrou a Experiencia com sucesso!`);
+            toast.success("Você cadastrou a Experiencia com sucesso!");
             history.push('/profileAluno');
-        }catch(err){
-            alert('Erro no cadastro, tente novamente.');
+        }catch(e){
+            toast.error("Erro no cadastro, tente novamente.");
         }
     }
     return (
         <div className="nova-experiencia-container">
+            <ToastContainer/>
             <div className="content">
                 <section>
                     <img src= {logo} alt="Central de Estagio"/>

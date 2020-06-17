@@ -1,10 +1,13 @@
+//Npm Imports
 import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import './styles.css';
 import { FiPlus ,FiPower, FiTrash2, FiHome} from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
+
+//Project Imports
+import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
-
 
 export default function ProfileAluno(){
 
@@ -41,9 +44,9 @@ export default function ProfileAluno(){
             });
 
             setHabilidade(habilidades.filter(habilidades => habilidades.id !== id));
-            alert(`Você deletou a vaga com sucesso!`);
+            toast.success("Você deletou a vaga com sucesso!");
         }catch(err){
-            alert('Erro ao deletar habilidades, tente novamente');
+            toast.error("Erro ao deletar habilidades, tente novamente");
         }
     }
 
@@ -56,9 +59,9 @@ export default function ProfileAluno(){
             });
 
             setEscolaridade(escolaridades.filter(escolaridades => escolaridades.id !== id));
-            alert(`Você deletou a vaga com sucesso!`);
+            toast.success("Você deletou a vaga com sucesso!");
         }catch(err){
-            alert('Erro ao deletar escolaridade, tente novamente');
+            toast.error("Erro ao deletar escolaridade, tente novamente");
         }
     }
 
@@ -71,9 +74,9 @@ export default function ProfileAluno(){
             });
 
             setExperiencia(experiencias.filter(experiencias => experiencias.id !== id));
-            alert(`Você deletou a vaga com sucesso!`);
+            toast.success("Você deletou a vaga com sucesso!");
         }catch(err){
-            alert('Erro ao deletar experiencia, tente novamente');
+            toast.error("Erro ao deletar experiencia, tente novamente");
         }
     }
     //Home Function
@@ -88,6 +91,7 @@ export default function ProfileAluno(){
     
     return (
         <div className="profile-aluno-container">
+            <ToastContainer/>
             <header>
                 <img src={logo} alt="Central de Estágios"/>
                 <span>Boas vindas, {nomeAluno}</span>

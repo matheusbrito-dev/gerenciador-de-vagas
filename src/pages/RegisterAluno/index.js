@@ -1,13 +1,17 @@
-import React from 'react';
+//Yarn Imports
+import React, {useState} from 'react';
 import {Link ,useHistory} from 'react-router-dom';
 import { FiArrowLeft} from 'react-icons/fi';
+
+//Project Imports
 import api from '../../services/api';
 import './styles.css';
 import logo from '../../assets/logo.png';
-import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function Register(){
     //const [usuarioAluno, setUsuarioAluno] = useState('');
+    const [raAluno, setRaAluno] = useState('');
     const [senhaAluno, setSenhaAluno] = useState('');
     const [nomeAluno, setNomeAluno] = useState('');
     const [cpfAluno, setCpfAluno] = useState('');
@@ -24,7 +28,7 @@ export default function Register(){
         e.preventDefault();
 
         const data ={
-            //usuarioAluno,
+            raAluno,
             senhaAluno,
             nomeAluno,
             cpfAluno,
@@ -40,8 +44,8 @@ export default function Register(){
             const response = await api.post('alunos', data)
             alert(`Seu ID de acesso: ${response.data.id}`);
             history.push('/');
-        }catch(err){
-            alert("Erro no cadastro, tente novamente.")
+        }catch(e){
+            toast.error(e.response.data.error);
         }
 
     }
@@ -49,6 +53,7 @@ export default function Register(){
 
     return( 
         <div className="register-aluno-container">
+            <ToastContainer/>
             <div className="content">
                 <section>
                     <img src= {logo} alt="Central de Estagio"/>
@@ -73,6 +78,12 @@ export default function Register(){
                     value={nomeAluno}
                     onChange={e=> setNomeAluno(e.target.value)}
                     />
+                    <input 
+                    placeholder="R.A do Aluno"
+                    value={raAluno}
+                    onChange={e=> setRaAluno(e.target.value)}
+                    />
+                    
                     <input 
                     type="number" placeholder="CPF"
                     value={cpfAluno}

@@ -1,16 +1,16 @@
+//Npm Imports
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import './styles.css';
 import { FiPower} from 'react-icons/fi';
-import logo from '../../assets/logo.png';
 
+//Project Imports
+import './styles.css';
+import logo from '../../assets/logo.png';
 
 export default function HomeEmpresa(){
     const history = useHistory();
 
     const nomeEmpresa = localStorage.getItem('nomeEmpresa');
-
-
 
     //Logout Func
     function handleLogout(){

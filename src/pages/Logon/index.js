@@ -1,11 +1,12 @@
+//Npm Imports
 import React, {useState} from 'react';
 import{ Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
 
+//Project Imports
 import api from '../../services/api';
-
 import './styles.css';
-
 import logo from '../../assets/logo.png';
 import rightImg from '../../assets/rightImg.png';
 
@@ -22,28 +23,41 @@ export default function Logon(){
 
         try{
             if(tipoLogin==="aluno"){
-                const response = await api.post('sessionAluno', {id, senha});
-                localStorage.setItem('alunoId', id);
-                localStorage.setItem('nomeAluno', response.data.nomeAluno);
+                const response = await api.post('sessionAluno', 
+                                                    { id, senha}
+                                                );
+                localStorage.setItem(
+                                        'alunoId', id
+                                    );
+                localStorage.setItem(
+                                        'nomeAluno', response.data.nomeAluno
+                                    );
                 history.push('/homeAluno');
 
             }else if(tipoLogin==="empresa"){
-                const response = await api.post('session', {id, senha});
-                localStorage.setItem('empresaId', id);
-                localStorage.setItem('nomeEmpresa', response.data.nomeFantasiaEmp);
+                const response = await api.post('session', 
+                                                    {id, senha}
+                                                );
+                localStorage.setItem(
+                                        'empresaId', id
+                                    );
+                localStorage.setItem(
+                                        'nomeEmpresa', response.data.nomeFantasiaEmp
+                                    );
                 history.push('/homeEmpresa');
             }else{
-                alert('Falha no Login, Por favor insira as informações');
+                toast.error("Falha no Login, Por favor insira as informações");
             }
                         
-        }catch(err){
-            alert('Falha no login, tente novamente.')
+        }catch(e){
+            toast.error("Falha no login, tente novamente.");
         }
     }
     
 
     return(
         <div className="logon-container">
+            <ToastContainer/>
             <section className="form">
                <img src={logo} alt="Central de Estágio"/>
                <form onSubmit={handleLogin}>
@@ -80,8 +94,7 @@ export default function Logon(){
             </section>
 
             <img src={rightImg} alt="rightImg"/>
-
-           
+         
         </div>
     );
 }

@@ -1,11 +1,16 @@
+//Npm Imports
 import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import './styles.css';
 import { FiPower, FiTrash2, FiHome} from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
+
+//Project Imports
+import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
 export default function Profile(){
+
     const history = useHistory();
     const [vagas, setVagas] = useState([]);
 
@@ -33,9 +38,9 @@ export default function Profile(){
             });
 
             setVagas(vagas.filter(vagas => vagas.id !== id));
-            alert(`Você deletou a vaga com sucesso!`);
+            toast.success("Você deletou a vaga com sucesso!");
         }catch(err){
-            alert('Erro ao deletar vagas, tente novamente');
+            toast.error("Erro ao deletar vagas, tente novamente");
         }
     }
 
@@ -52,6 +57,7 @@ export default function Profile(){
 
     return (
         <div className="profile-container">
+            <ToastContainer/>
             <header>
                 <img src={logo} alt="Central de Estágios"/>
                 <span>Boas vindas, {nomeEmpresa}</span>
