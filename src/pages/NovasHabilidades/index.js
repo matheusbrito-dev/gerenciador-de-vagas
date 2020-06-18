@@ -34,7 +34,7 @@ export default function NovaEscolaridade(){
             toast.success("Você cadastrou a Habilidade com sucesso!");
             history.push('/profileAluno');
         }catch(err){
-            toast.error("Erro no cadastro, tente novamente.");
+            toast.error(err.response.data.error);
         }
     }
 

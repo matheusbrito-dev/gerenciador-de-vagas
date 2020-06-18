@@ -16,6 +16,7 @@ export default function EscolherLogin(){
                <form>
                    <h1>Quem é você?</h1>
                    <Link className="button" to="/registerAluno">Aluno</Link>
+                   <Link className="button" to="/registerCentral">Central</Link>
                    <Link className="button" to="/register">Empresa</Link>
                    <Link className="back-link" to="/">
                        <FiLogIn size={16} color="#E02041"/>

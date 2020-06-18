@@ -19,10 +19,11 @@ export default function Register(){
     const [cnpjEmp,setCnpjEmp] = useState('');
     const [emailEmp,setEmailEmp] = useState('');
     const [telEmp,setTelEmp] = useState('');
-    const [logoEmpresa,setLogoEmpresa] = useState('');
     const [nomeRepresentante,setNomeRepresentante] = useState('');
     const [cpfRepresentante,setCpfRepresentante] = useState('');
     const [senhaEmpresa,setSenhaEmpresa] = useState('');
+
+    const [codValidacao,setCodValidacao] = useState('');
 
     const history = useHistory();
 
@@ -30,6 +31,7 @@ export default function Register(){
         e.preventDefault();
 
         const data ={
+            codValidacao,
             cidadeEmpresa,
             ufEmpresa,
             nomeFantasiaEmp,
@@ -37,7 +39,6 @@ export default function Register(){
             cnpjEmp,
             emailEmp,
             telEmp,
-            logoEmpresa,
             nomeRepresentante,
             cpfRepresentante,
             senhaEmpresa,
@@ -53,6 +54,7 @@ export default function Register(){
             toast.error(err.response.data.error);
         }
     }
+    
 
     return( 
         <div className="register-container">
@@ -80,9 +82,6 @@ export default function Register(){
                     placeholder="Nome Fantasia"
                     value={nomeFantasiaEmp}
                     onChange={e=> setNomeFantasiaEmp(e.target.value)}
-                    />
-                    <input placeholder="Logo" value={logoEmpresa} 
-                    onChange={e=> setLogoEmpresa(e.target.value)}
                     />
                     <input 
                     placeholder="Razão Social"
@@ -126,7 +125,13 @@ export default function Register(){
                     value={cpfRepresentante}
                     onChange={e=> setCpfRepresentante(e.target.value)}
                     />
-                
+
+                    <input 
+                    placeholder="Codigo de Validação"
+                    value={codValidacao}
+                    onChange={e=> setCodValidacao(e.target.value)}
+                    />  
+
                     <input 
                     type="password" placeholder="Senha de acesso"
                     value={senhaEmpresa}

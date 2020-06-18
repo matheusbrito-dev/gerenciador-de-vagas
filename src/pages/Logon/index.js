@@ -10,8 +10,9 @@ import './styles.css';
 import logo from '../../assets/logo.png';
 import rightImg from '../../assets/rightImg.png';
 
-
+//Criar tela de cadastro pra central
 export default function Logon(){
+
     const [tipoLogin, setTipoLogin] = useState('');
     const [id, setId] = useState('');
     const [senha, setSenha] = useState('');
@@ -45,19 +46,28 @@ export default function Logon(){
                                         'nomeEmpresa', response.data.nomeFantasiaEmp
                                     );
                 history.push('/homeEmpresa');
+            }else if(tipoLogin==="central"){
+                const response = await api.post('sessionCentral', 
+                                                    {id, senha}
+                                                );
+                localStorage.setItem(
+                                        'centralId', id
+                                    );
+                localStorage.setItem(
+                                        'nomeCentral', response.data.nomeCentral
+                                    );
+                history.push('/homeCentral');
             }else{
                 toast.error("Falha no Login, Por favor insira as informações");
             }
                         
         }catch(e){
-            toast.error("Falha no login, tente novamente.");
+            toast.error("Login Incorreto, tente novamente.");
         }
     }
     
-
     return(
         <div className="logon-container">
-            <ToastContainer/>
             <section className="form">
                <img src={logo} alt="Central de Estágio"/>
                <form onSubmit={handleLogin}>
@@ -71,6 +81,7 @@ export default function Logon(){
                     >
                         <option value="">Escolha o Tipo de Login</option>
                         <option value="aluno">Aluno</option>
+                        <option value="central">Central</option>
                         <option value="empresa">Empresa</option>
                     </select>
                    <input 
@@ -94,7 +105,7 @@ export default function Logon(){
             </section>
 
             <img src={rightImg} alt="rightImg"/>
-         
+            <ToastContainer/>
         </div>
     );
 }

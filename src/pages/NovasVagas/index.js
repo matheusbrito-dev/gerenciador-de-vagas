@@ -41,7 +41,7 @@ export default function NovaVaga(){
             toast.success("Você Cadastrou a vaga com sucesso!");
             history.push('/profile');
         }catch(err){
-            toast.error("Erro no cadastro, tente novamente.");
+            toast.error(err.response.data.error);
         }
     }
     return (
@@ -89,7 +89,6 @@ export default function NovaVaga(){
                     onChange={e=> setDataTerminoVaga(e.target.value)}
                     />
                     <button className="button" type="submit">Cadastrar</button>
-
                 </form>
             </div>
         </div>

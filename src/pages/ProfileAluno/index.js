@@ -46,7 +46,7 @@ export default function ProfileAluno(){
             setHabilidade(habilidades.filter(habilidades => habilidades.id !== id));
             toast.success("Você deletou a vaga com sucesso!");
         }catch(err){
-            toast.error("Erro ao deletar habilidades, tente novamente");
+            toast.error(err.response.data.error);
         }
     }
 

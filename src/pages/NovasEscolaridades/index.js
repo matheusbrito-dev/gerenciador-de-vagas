@@ -42,8 +42,8 @@ export default function NovaEscolaridade(){
             })
             toast.success('Você cadastrou sua Escolaridade com sucesso!');
             history.push('/profileAluno');
-        }catch(e){
-            toast.error('Erro no cadastro. Tente novamente!');
+        }catch(err){
+            toast.error(err.response.data.error);
         }
     }
     return (

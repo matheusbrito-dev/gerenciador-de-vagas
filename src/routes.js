@@ -13,6 +13,12 @@ import NovaHabilidades from './pages/NovasHabilidades';
 import EscolherCadastro from './pages/EscolherCadastro';
 import HomeAluno from './pages/HomeAluno';
 import HomeEmpresa from './pages/HomeEmpresa';
+import HomeCentral from './pages/HomeCentral';
+import GerarValidacao from './pages/GerarValidacao';
+import RegisterCentral from './pages/RegisterCentral';
+import ListarCodigo from './pages/ListarCodigo';
+import ListarEmpresas from './pages/ListarEmpresas';
+import ListarAlunos from './pages/ListarAlunos';
 
 export default function Routes(){
     return(
@@ -30,6 +36,12 @@ export default function Routes(){
                 <Route path="/escolherCadastro" component={EscolherCadastro}/>
                 <Route path="/homeEmpresa" component={HomeEmpresa}/>
                 <Route path="/homeAluno" component={HomeAluno}/>
+                <Route path="/homeCentral" component={HomeCentral}/>
+                <Route path="/gerarValidacao" component={GerarValidacao}/>
+                <Route path="/registerCentral" component={RegisterCentral}/>
+                <Route path="/listarCodigos" component={ListarCodigo}/>
+                <Route path="/listarEmpresas" component={ListarEmpresas}/>
+                <Route path="/listarAlunos" component={ListarAlunos}/>
             </Switch>
         </BrowserRouter>
     );
