@@ -93,16 +93,16 @@ export default function Profile(){
                         <strong>CNPJ:</strong>
                         <p>{empresas.cnpjEmp}</p>
 
-                        <strong>NOME FANTASIA:</strong>
+                        <strong>NOME DO REPRESENTANTE:</strong>
                         <p>{empresas.nomeRepresentante}</p>
 
-                        <strong>CPF:</strong>
+                        <strong>CPF DO REPRESENTANTE:</strong>
                         <p>{empresas.cpfRepresentante}</p>
 
-                        <strong>E-MAIL:</strong>
+                        <strong>E-MAIL DA EMPRESA:</strong>
                         <p>{empresas.emailEmp}</p>
 
-                        <strong>TELEFONE:</strong>
+                        <strong>TELEFONE DA EMPRESA:</strong>
                         <p>{empresas.telEmp}</p>
 
                         <button onClick={()=>handleDeleteEmpresa(empresas.id)} type="button">

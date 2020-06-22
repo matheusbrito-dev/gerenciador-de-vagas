@@ -54,10 +54,12 @@
 }
 
 .profile-container ul li button {
-    position: absolute;
-    right: 24px;
-    top: 24px;
+    position: relative;
+    right: 8px;
+    top: 2px;
     border: 0;
+    margin: 10px;
+    
 }
 
 .profile-container ul li button:hover{

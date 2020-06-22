@@ -1,7 +1,10 @@
+//Npm Imports
 import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import './styles.css';
 import { FiPower} from 'react-icons/fi';
+
+//Project Imports
+import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
@@ -20,7 +23,6 @@ export default function HomeAluno() {
                 Authorization: alunoId,
             }
         }).then(response=>{
-            console.log("Teste", response)
             setVagas(response.data)
          
         })

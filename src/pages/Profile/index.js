@@ -1,13 +1,14 @@
 //Npm Imports
 import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import { FiPower, FiTrash2, FiHome} from 'react-icons/fi';
+import { FiPower, FiTrash2, FiHome, FiMail} from 'react-icons/fi';
 import { toast, ToastContainer } from 'react-toastify';
 
 //Project Imports
 import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
+
 
 export default function Profile(){
 
@@ -39,6 +40,17 @@ export default function Profile(){
 
             setVagas(vagas.filter(vagas => vagas.id !== id));
             toast.success("Você deletou a vaga com sucesso!");
+            
+        }catch(err){
+            toast.error(err.response.data.error);
+        }
+    }
+
+    //Mail
+    async function handleMail(id){
+        try{
+            await api.post('sendmail');
+            history.push('/Profile');
         }catch(err){
             toast.error(err.response.data.error);
         }
@@ -76,6 +88,15 @@ export default function Profile(){
             <ul>
                 {vagas.map(vagas => (
                     <li key={vagas.id}>
+
+                        <button onClick={()=>handleMail(vagas.id)} type="button">
+                            <FiMail size={20} color="#a8a8b3"/>
+                        </button>
+                        
+                        <button onClick={()=>handleDeleteVaga(vagas.id)} type="button">
+                            <FiTrash2 size={20} color="#a8a8b3"/>
+                        </button>
+
                         <strong>VAGAS:</strong>
                         <p>{vagas.nomeVaga}</p>
 
@@ -89,11 +110,8 @@ export default function Profile(){
                         <p>{Intl.DateTimeFormat('pt-BR').format(vagas.dataInicioVagas)}</p>
 
                         <strong>DATA FIM</strong>
-                        <p>{Intl.DateTimeFormat('pt-BR').format(vagas.dataTerminoVagas)}</p>
-
-                        <button onClick={()=>handleDeleteVaga(vagas.id)} type="button">
-                            <FiTrash2 size={20} color="#a8a8b3"/>
-                        </button>
+                        <p>{Intl.DateTimeFormat('pt-BR').format(vagas.dataTerminoVagas)}</p>   
+                        
                     </li>
                 ))}        
             </ul>

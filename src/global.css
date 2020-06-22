@@ -9,6 +9,7 @@
 }
 
 body {
+    height: 100%;
     font: 400 14px Roboto, sans-serif;
     background: #f0f0f5;
     -webkit-front-smoothing: antialiased;

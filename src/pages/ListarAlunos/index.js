@@ -9,7 +9,7 @@ import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
-export default function Profile(){
+export default function ListarAlunos(){
 
     const history = useHistory();
     const [alunos, setAlunos] = useState([]);
