@@ -37,7 +37,7 @@ export default function GerarValidacao(){
                 <section>
                     <img src= {logo} alt="Central de Estagio"/>
 
-                    <h1>Cadastro Nova validacao</h1>
+                    <h1>Cadastro Nova Validacao</h1>
                     <p>Efetue o cadastro da Nova validacao</p>
 
                     <Link className="back-link" to="/homeCentral">

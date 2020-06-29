@@ -1,3 +1,4 @@
+import './styles.css';
 //Npm Imports
 import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
@@ -5,7 +6,6 @@ import { FiPower, FiTrash2, FiHome, FiMail} from 'react-icons/fi';
 import { toast, ToastContainer } from 'react-toastify';
 
 //Project Imports
-import './styles.css';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
@@ -48,12 +48,10 @@ export default function Profile(){
 
     //Mail
     async function handleMail(id){
-        try{
-            await api.post('sendmail');
-            history.push('/Profile');
-        }catch(err){
-            toast.error(err.response.data.error);
-        }
+        localStorage.setItem(
+            'vagaId', id
+        );
+        history.push('/filtrarAlunos');
     }
 
     //Home Function
@@ -84,6 +82,9 @@ export default function Profile(){
             </header>
 
             <h1>Vagas Cadastradas</h1>
+
+
+      
 
             <ul>
                 {vagas.map(vagas => (

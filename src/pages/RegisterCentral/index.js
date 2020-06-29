@@ -52,15 +52,11 @@ export default function Register(){
                     <h1>Cadastro de Central</h1>
                     <p>Efetue o cadastro para ter acesso ao sistema</p>
 
-                    <Link className="back-link" to="/escolherCadastro">
+                    <Link className="back-link" to="/homeCentral">
                        <FiArrowLeft size={16} color="#E02041"/>
-                       Voltar para a escolha de Cadastro
+                       Voltar para a Home
                    </Link>
 
-                    <Link className="back-link" to="/">
-                       <FiArrowLeft size={16} color="#E02041"/>
-                       Voltar para a tela de Login
-                   </Link>
                 </section>
                 <form onSubmit={handleRegister}>
                     <input 

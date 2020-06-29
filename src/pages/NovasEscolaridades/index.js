@@ -58,7 +58,7 @@ export default function NovaEscolaridade(){
 
                     <Link className="back-link" to="/profileAluno">
                        <FiArrowLeft size={16} color="#E02041"/>
-                       Voltar para Home
+                       Voltar para o Curriculo
                    </Link>
                 </section>
 

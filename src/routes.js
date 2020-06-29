@@ -19,6 +19,7 @@ import RegisterCentral from './pages/RegisterCentral';
 import ListarCodigo from './pages/ListarCodigo';
 import ListarEmpresas from './pages/ListarEmpresas';
 import ListarAlunos from './pages/ListarAlunos';
+import FiltrarAlunos from './pages/EscolherAlunos';
 
 export default function Routes(){
     return(
@@ -42,6 +43,7 @@ export default function Routes(){
                 <Route path="/listarCodigos" component={ListarCodigo}/>
                 <Route path="/listarEmpresas" component={ListarEmpresas}/>
                 <Route path="/listarAlunos" component={ListarAlunos}/>
+                <Route path="/filtrarAlunos" component={FiltrarAlunos}/>
             </Switch>
         </BrowserRouter>
     );

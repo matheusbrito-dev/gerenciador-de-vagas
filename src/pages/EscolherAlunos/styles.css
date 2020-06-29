@@ -1,0 +1,239 @@
+
+.filtrar-alunos-container{
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.filtrar-alunos-container header{
+    display: flex;
+    align-items: center;
+}
+
+.filtrar-alunos-container header img{
+    height: 64px;
+}
+
+.filtrar-alunos-container header a{
+    width: 260px;
+    margin-left: auto;
+    margin-top: 0;
+}
+
+.filtrar-alunos-container header button{
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+}
+
+.filtrar-alunos-container header button:hover{
+    border-color: #999;
+}
+
+.filtrar-alunos-container h1{
+    margin-top: 80px;
+    margin-bottom: 24px;
+}
+
+.filtrar-alunos-container ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.filtrar-alunos-container ul li{
+    background: #FFF;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.filtrar-alunos-container ul li button {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    border: 0;
+}
+
+.filtrar-alunos-container ul li button:hover{
+    opacity: 0.8;
+}
+
+.filtrar-alunos-container ul li strong {
+    display: block;
+    margin-bottom: 16px;
+    color: #41414d;
+}
+
+.filtrar-alunos-container ul li p + strong{
+    margin-top: 32px;
+}
+
+.filtrar-alunos-container ul li p{
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+}
+.filtrar-alunos-container .select {
+    font-size: 18px;
+    color: #7e7e88f8;
+
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    width: 40%;
+    max-width: 400px;
+
+}
+.filtrar-alunos-container input {
+    font-size: 18px;
+    color: #7e7e88f8;
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    width: 40%;
+    max-width: 500px;
+}
+
+.filtrar-alunos-container .button{
+    margin-top: 40px;
+    margin-bottom: 5px;
+    width: 20%;
+    max-width: 500px;
+}
+
+.filtrar-alunos-container .group{
+    display: flex;
+}
+.filtrar-alunos-container .group input + select + button{
+    margin-left: 8px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .table-sm th,
+  .table-sm td {
+    padding: 0.3rem;
+  }
+  
+  .table-bordered {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-bordered thead th,
+  .table-bordered thead td {
+    border-bottom-width: 2px;
+  }
+  
+  .table-borderless th,
+  .table-borderless td,
+  .table-borderless thead th,
+  .table-borderless tbody + tbody {
+    border: 0;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-hover tbody tr:hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  
+  
+  @media (max-width: 575.98px) {
+    .table-responsive-sm {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-responsive-sm > .table-bordered {
+      border: 0;
+    }
+  }
+  
+  @media (max-width: 767.98px) {
+    .table-responsive-md {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-responsive-md > .table-bordered {
+      border: 0;
+    }
+  }
+  
+  @media (max-width: 991.98px) {
+    .table-responsive-lg {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-responsive-lg > .table-bordered {
+      border: 0;
+    }
+  }
+  
+  @media (max-width: 1199.98px) {
+    .table-responsive-xl {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-responsive-xl > .table-bordered {
+      border: 0;
+    }
+  }
+  
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table-responsive > .table-bordered {
+    border: 0;
+  }

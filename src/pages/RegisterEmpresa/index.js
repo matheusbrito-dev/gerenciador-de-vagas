@@ -137,7 +137,6 @@ export default function Register(){
                     value={senhaEmpresa}
                     onChange={e=> setSenhaEmpresa(e.target.value)}
                     />
-                    <input type="password" placeholder="Confirme sua senha"/>
 
                     <button className="button" type="submit">Cadastrar</button>
 

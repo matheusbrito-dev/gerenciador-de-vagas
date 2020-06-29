@@ -24,7 +24,6 @@ export default function HomeAluno() {
             }
         }).then(response=>{
             setVagas(response.data)
-         
         })
         
     }, [alunoId]);

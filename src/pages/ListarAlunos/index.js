@@ -75,6 +75,9 @@ export default function ListarAlunos(){
             <ul>
                 {alunos.map(alunos => (
                     <li key={alunos.id}>
+                        <strong>ID:</strong>
+                        <p>{alunos.id}</p>
+                        
                         <strong>R.A:</strong>
                         <p>{alunos.raAluno}</p>
 

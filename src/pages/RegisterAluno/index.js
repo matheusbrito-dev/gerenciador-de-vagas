@@ -102,9 +102,9 @@ export default function Register(){
                     onChange={e=> setSexoAluno(e.target.value)}
                     >
                         <option value="">Escolha seu sexo</option>
-                        <option value="masc">Masculino</option>
-                        <option value="femi">Feminino</option>
-                        <option value="outr">Outros</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outros">Outros</option>
                     </select>
                     <div className="input-group">
                         <input 

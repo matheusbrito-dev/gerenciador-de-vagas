@@ -75,6 +75,9 @@ export default function Profile(){
             <ul>
                 {empresas.map(empresas => (
                     <li key={empresas.id}>
+                        <strong>ID:</strong>
+                        <p>{empresas.id}</p>
+
                         <strong>SENHA:</strong>
                         <p>{empresas.senhaEmpresa}</p>
 

@@ -23,6 +23,8 @@ export default function EscolherLogin(){
             <header>
                 <img src={logo} alt="Central de Estágios"/>
                 <span>Boas vindas, {nomeCentral}</span>
+                
+                <Link className="button" to="/registerCentral">Central</Link>
 
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02041"/>

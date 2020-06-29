@@ -49,14 +49,11 @@ export default function HomeEmpresa(){
         
             <h1>Alunos Disponíveis</h1>
 
+            
+
             <ul>
                 {alunos.map(alunos => (
                     <li key={alunos.id}>
-                        <strong>R.A:</strong>
-                        <p>{alunos.raAluno}</p>
-
-                        <strong>SENHA DA CONTA:</strong>
-                        <p>{alunos.senhaAluno}</p>
 
                         <strong>NOME DO ALUNO:</strong>
                         <p>{alunos.nomeAluno}</p>
